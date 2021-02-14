@@ -1,0 +1,18 @@
+body {
+	background-color: #f5cec7;
+	font-family: helvetica;
+	color: PaleVioletRed;
+}
+
+ul {
+	margin: 0;
+	list-style: none;
+}
+
+button {
+	border: none;
+	color: #9e504f;
+	background-color: #ffb284;
+	cursor: pointer;
+	padding: 10px 30px;
+}

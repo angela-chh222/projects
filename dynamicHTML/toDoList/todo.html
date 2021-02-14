@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>To do:</title>
+<link rel="stylesheet" href="styleSheet.css">
+<script>
+function addItemFunction() {
+    var newItemName = document.getElementById("newItem").value;
+	
+	if (newItemName == "" || newItemName == null) {
+		alert("Please enter some text!");
+		return false;
+	}
+	
+	var newListItem = document.createElement("li");
+	var newCheckBox = document.createElement("input");
+    newCheckBox.type = "checkbox";
+	var t = document.createTextNode(newItemName);
+	newListItem.appendChild(newCheckBox);
+	newListItem.appendChild(t);
+	document.getElementById("toDoList").appendChild(newListItem);
+	
+	document.getElementById("newItem").value = "";
+}
+
+function removeItemFunction() {
+    var itemList = document.getElementById("toDoList");
+	var items = itemList.childNodes;
+    for (var i = 0; i < items.length; i++) {
+		if (items[i].nodeType === 1) {
+			if (items[i].firstChild.checked) {
+				itemList.removeChild(items[i--]);
+			}
+		}
+	}
+}
+
+function highlightFunction() {
+	var itemList = document.getElementById("toDoList");
+	var items = itemList.getElementsByTagName("li");
+	for (var i = 0; i < items.length; i++) {
+		if (items[i].nodeType === 1) {
+			if (items[i].firstChild.checked) {
+				if (items[i].style.color === "white") {
+					items[i].style.color = "PaleVioletRed";
+				}
+				else {
+					items[i].style.color = "white";
+				}
+				
+			}
+		}
+	}
+}
+
+function sortFunction() {
+	var itemList = document.getElementById("toDoList");
+	var items = itemList.getElementsByTagName("li");
+	var n = items.length;
+	//alert("length=" + n);
+	for (var i = 0; i < n-1; i++) {
+        for (var j = 0; j < n-i-1; j++) {
+			var a = items[j].innerHTML.toLowerCase();
+			var b = items[j+1].innerHTML.toLowerCase();
+			if (a > b) {
+			    //swap a and b on list
+				var temp = items[j].innerHTML;
+				items[j].innerHTML = items[j+1].innerHTML;
+				items[j+1].innerHTML = temp;
+			}
+		}
+	}
+}
+</script>
+
+</head>
+
+<body>
+<div class="myDiv">
+	<h2>My to do list:</h2>
+	<input type="text" id="newItem" placeholder="Add a new item...">
+	<button type="button" id="addItem" onclick="addItemFunction()">Add Item</button>
+</div>
+
+<ul id="toDoList">
+	<li><input type="checkbox">Go to post office</li>
+	<li><input type="checkbox">Buy milk</li>
+	<li><input type="checkbox">Pay phone bill</li>
+	<li><input type="checkbox">Do laundry</li>
+</ul> 
+
+<button type="button" id="removeItem" onclick="removeItemFunction()">Remove Item</button>
+
+<button type="button" id="highlight" onclick="highlightFunction()">Toggle Highlight</button>
+
+<button type="button" id="sortItem" onclick="sortFunction()">Sort List</button>
+
+</body>
+</html>
