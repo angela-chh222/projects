@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Tutorial 3</title>
+
+<link rel="stylesheet" href="styleSheet.css">
+
+<script src="T3.js"></script>
+
+</head>
+<body>
+
+<div class="movie">
+	<h2>Find a movie:</h2>
+	<input type="text" id="movieID" placeholder="Enter a movie ID...">
+	<button type="button" id="enter" onclick="findMovie()">Enter</button>
+</div>
+
+<div class="movieInfo">
+	<h2>Movie Info:</h2>
+	<p id="displayInfoHere"></p>
+</div>
+
+<form class="review">
+	<h2>Reviews:</h2>
+	<h4>Add a review:</h4>
+	<label for="rating">Pick a rating:</label>
+	<select id="ratings">
+		<option value="noRating">--</option>
+		<option value="1/10">1/10</option>
+		<option value="2/10">2/10</option>
+		<option value="3/10">3/10</option>
+		<option value="4/10">4/10</option>
+		<option value="5/10">5/10</option>
+		<option value="6/10">6/10</option>
+		<option value="7/10">7/10</option>
+		<option value="8/10">8/10</option>
+		<option value="9/10">9/10</option>
+		<option value="10/10">10/10</option>
+	</select>
+	<br>
+	<br>
+	
+	<textarea id="displayNewReview" placeholder="Write a review..."></textarea><br>
+	<button type="button" id="add" onclick="addReview()">Add</button>
+</form>
+
+<p id="displayReviewHere"></p>
+<br>
+
+</body>
+</html>
